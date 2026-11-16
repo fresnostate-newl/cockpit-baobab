@@ -178,7 +178,7 @@ export async function listLocations(): Promise<MountLocation[]> {
 
     const dfOut = await cockpit.spawn(
         [
-            'df', '-PB1',
+            'df', '-B1',
             '--output=source,fstype,size,used,avail,pcent,target',
             '-x', 'tmpfs', '-x', 'devtmpfs', '-x', 'squashfs', '-x', 'overlay', '-x', 'efivarfs',
         ],

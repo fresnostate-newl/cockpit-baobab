@@ -8,15 +8,26 @@ import { cockpitPoEsbuildPlugin } from './pkg/lib/cockpit-po-plugin.js';
 import { cockpitRsyncEsbuildPlugin } from './pkg/lib/cockpit-rsync-plugin.js';
 
 const production = process.env.NODE_ENV === 'production';
-const useWasm = process.env.ESBUILD_WASM === '1';
-
 const args = process.argv.slice(2);
 const watch = args.includes('--watch') || args.includes('-w');
-
 const outdir = './dist';
 
-function cleanDist() {
-    fs.rmSync(outdir, { recursive: true, force: true });
+fs.rmSync(outdir, { recursive: true, force: true });
+
+function cockpitShimPlugin() {
+    return {
+        name: 'cockpit-shim',
+        setup(build) {
+            build.onResolve({ filter: /^cockpit$/ }, () => ({
+                path: 'cockpit',
+                namespace: 'cockpit-shim',
+            }));
+            build.onLoad({ filter: /.*/, namespace: 'cockpit-shim' }, () => ({
+                contents: 'export default window.cockpit;',
+                loader: 'js',
+            }));
+        },
+    };
 }
 
 function copyStaticPlugin() {
@@ -49,7 +60,7 @@ function writeRuntimeModulesPlugin() {
                         const pkg = JSON.parse(fs.readFileSync(path.join('node_modules', mod, 'package.json'), 'utf8'));
                         lines.push(`${mod} ${pkg.version}`);
                     } catch {
-                        // ignore virtual or sub-packages without package.json
+                        // ignore virtual or sub-packages
                     }
                 }
                 fs.writeFileSync('runtime-npm-modules.txt', lines.join('\n') + (lines.length ? '\n' : ''));
@@ -57,8 +68,6 @@ function writeRuntimeModulesPlugin() {
         },
     };
 }
-
-cleanDist();
 
 const context = await esbuild.context({
     entryPoints: ['src/index.tsx'],
@@ -70,7 +79,7 @@ const context = await esbuild.context({
     minify: production,
     sourcemap: !production,
     metafile: true,
-    external: ['cockpit', '../base1/cockpit.js'],
+    external: ['../base1/cockpit.js'],
     loader: {
         '.woff': 'file',
         '.woff2': 'file',
@@ -79,6 +88,7 @@ const context = await esbuild.context({
         '.png': 'file',
     },
     plugins: [
+        cockpitShimPlugin(),
         sassPlugin({
             loadPaths: ['node_modules', 'pkg/lib'],
             quietDeps: true,
