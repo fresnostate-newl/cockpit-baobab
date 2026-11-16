@@ -1,0 +1,39 @@
+{
+  "name": "baobab",
+  "version": "1.0.0",
+  "description": "Cockpit Disk Usage Analyzer plugin inspired by GNOME Baobab",
+  "license": "LGPL-2.1-or-later",
+  "private": true,
+  "scripts": {
+    "build": "NODE_ENV=production ./build.js",
+    "watch": "./build.js --watch",
+    "eslint": "eslint src/",
+    "eslint:fix": "eslint --fix src/",
+    "stylelint": "stylelint 'src/**/*.{css,scss}'",
+    "stylelint:fix": "stylelint --fix 'src/**/*.{css,scss}'",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@patternfly/patternfly": "^6.0.0",
+    "@patternfly/react-core": "^6.0.0",
+    "@patternfly/react-icons": "^6.0.0",
+    "@patternfly/react-table": "^6.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.6",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "esbuild": "^0.24.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "gettext-parser": "^10.0.0",
+    "sass": "^1.80.0",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "typescript": "^5.6.3"
+  }
+}

@@ -1,0 +1,15 @@
+/dist/
+/node_modules/
+/pkg/
+/test/common/
+/test/images/
+/tools/
+/bots/
+/package-lock.json
+/metafile.json
+/runtime-npm-modules.txt
+/cockpit-baobab.spec
+/*.tar.xz
+/*.rpm
+/po/LINGUAS
+/po/*.pot

@@ -1,0 +1,310 @@
+.baobab-page {
+    min-height: 100vh;
+}
+
+.baobab-header-card {
+    margin-bottom: 1rem;
+}
+
+.baobab-alert-mt {
+    margin-top: 1rem;
+}
+
+.baobab-alert-mb {
+    margin-bottom: 1rem;
+}
+
+.baobab-location-card {
+    cursor: pointer;
+    height: 100%;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+    &:hover {
+        border-color: var(--pf-t--global--color--brand--default, #0066cc);
+    }
+}
+
+.baobab-location-icon {
+    font-size: 1.5rem;
+    color: var(--pf-t--global--color--brand--default, #0066cc);
+}
+
+.baobab-location-title {
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.baobab-location-sub {
+    font-size: 0.85rem;
+    color: var(--pf-t--global--text--color--subtle, #6a6e73);
+    word-break: break-all;
+}
+
+.baobab-location-usage {
+    margin-top: 0.75rem;
+}
+
+.baobab-location-avail {
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--pf-t--global--text--color--subtle, #6a6e73);
+}
+
+.baobab-scan-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.baobab-scan-path {
+    font-family: var(--pf-t--global--font--family--mono, monospace);
+    font-size: 0.85rem;
+    color: var(--pf-t--global--text--color--subtle, #6a6e73);
+    max-width: 36rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.baobab-toolbar {
+    border-bottom: 1px solid var(--pf-t--global--border--color--default, #d2d2d2);
+}
+
+.baobab-breadcrumb-item {
+    cursor: pointer;
+}
+
+.baobab-tree-wrapper {
+    max-height: 70vh;
+    overflow-y: auto;
+    border: 1px solid var(--pf-t--global--border--color--default, #d2d2d2);
+    border-radius: 4px;
+}
+
+.baobab-sortable-th {
+    cursor: pointer;
+    user-select: none;
+}
+
+.baobab-tree-name {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.baobab-expand-btn {
+    background: none;
+    border: none;
+    padding: 0 2px;
+    cursor: pointer;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+}
+
+.baobab-expand-spacer {
+    display: inline-block;
+    width: 16px;
+    flex-shrink: 0;
+}
+
+.baobab-color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.baobab-node-icon {
+    display: inline-flex;
+    color: var(--pf-t--global--text--color--subtle, #6a6e73);
+    flex-shrink: 0;
+}
+
+.baobab-node-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.baobab-node-error {
+    font-size: 0.75rem;
+    color: var(--pf-t--global--color--status--warning--default, #f0ab00);
+}
+
+.baobab-size-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.baobab-size-text {
+    font-variant-numeric: tabular-nums;
+    font-size: 0.875rem;
+}
+
+.baobab-row-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.25rem;
+}
+
+.baobab-empty-row {
+    text-align: center;
+    padding: 2rem;
+    color: var(--pf-t--global--text--color--subtle, #6a6e73);
+}
+
+.baobab-chart-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.baobab-chart-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.baobab-rings-svg {
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+}
+
+.baobab-treemap-svg {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.baobab-center-circle {
+    fill: var(--pf-t--global--background--color--secondary--default, #f5f5f5);
+    stroke: var(--pf-t--global--border--color--default, #d2d2d2);
+    stroke-width: 1.5;
+
+    &.is-clickable {
+        cursor: pointer;
+
+        &:hover {
+            stroke: var(--pf-t--global--color--brand--default, #0066cc);
+        }
+    }
+}
+
+.baobab-center-title {
+    font-size: 13px;
+    font-weight: 600;
+    fill: var(--pf-t--global--text--color--regular, #151515);
+    pointer-events: none;
+}
+
+.baobab-center-size {
+    font-size: 12px;
+    fill: var(--pf-t--global--text--color--subtle, #6a6e73);
+    pointer-events: none;
+}
+
+.baobab-center-hint {
+    font-size: 11px;
+    fill: var(--pf-t--global--color--brand--default, #0066cc);
+    pointer-events: none;
+}
+
+.baobab-ring-slice {
+    stroke: var(--pf-t--global--background--color--primary--default, #ffffff);
+    stroke-width: 1;
+    transition: opacity 0.12s ease;
+
+    &.is-dir {
+        cursor: pointer;
+    }
+
+    &.is-hovered,
+    &.is-selected {
+        stroke: #151515;
+        stroke-width: 2;
+        opacity: 0.92;
+    }
+}
+
+.baobab-treemap-cell {
+    cursor: pointer;
+
+    &.is-hovered rect,
+    &.is-selected rect {
+        stroke: #151515;
+        stroke-width: 2;
+    }
+}
+
+.baobab-treemap-label {
+    font-size: 11px;
+    font-weight: 600;
+    fill: #ffffff;
+    pointer-events: none;
+}
+
+.baobab-treemap-size {
+    font-size: 10px;
+    fill: rgba(255, 255, 255, 0.9);
+    pointer-events: none;
+}
+
+.baobab-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: rgba(21, 21, 21, 0.92);
+    color: #ffffff;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    z-index: 20;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    max-width: 260px;
+}
+
+.baobab-tooltip-title {
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.baobab-tooltip-meta {
+    display: flex;
+    gap: 0.35rem;
+    color: #d2d2d2;
+}
+
+.baobab-tooltip-hint {
+    margin-top: 2px;
+    font-size: 0.72rem;
+    color: #73bcf7;
+}
+
+.baobab-selection-bar {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--pf-t--global--border--color--default, #d2d2d2);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.baobab-selection-path {
+    font-family: var(--pf-t--global--font--family--mono, monospace);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.baobab-selection-stats {
+    flex-shrink: 0;
+}

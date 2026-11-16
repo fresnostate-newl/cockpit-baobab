@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>org.cockpit_project.baobab</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LGPL-2.1-or-later</project_license>
+  <name>Disk Usage Analyzer (Baobab)</name>
+  <summary>Cockpit plugin for visualizing disk space utilization with rings charts, treemaps, and tree views</summary>
+  <description>
+    <p>
+      A Cockpit module inspired by GNOME Baobab (Disk Usage Analyzer) that scans local
+      filesystems and directories and visualizes disk space usage using interactive
+      concentric rings charts, treemaps, and expandable directory trees.
+    </p>
+  </description>
+  <extends>org.cockpit_project.cockpit</extends>
+  <url type="homepage">https://github.com/cockpit-project/starter-kit</url>
+</component>

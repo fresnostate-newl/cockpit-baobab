@@ -1,0 +1,18 @@
+{
+  "version": 0,
+  "require": {
+    "cockpit": "260"
+  },
+  "tools": {
+    "baobab": {
+      "label": "Disk Usage Analyzer",
+      "path": "index.html",
+      "keywords": [
+        {
+          "matches": ["disk", "space", "storage", "baobab", "usage", "du", "folder", "tree"]
+        }
+      ]
+    }
+  },
+  "content-security-policy": "default-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'"
+}

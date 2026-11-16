@@ -1,0 +1,45 @@
+Name:           cockpit-baobab
+Version:        %{VERSION}
+Release:        1%{?dist}
+Summary:        Cockpit Disk Usage Analyzer plugin inspired by GNOME Baobab
+License:        LGPL-2.1-or-later
+URL:            https://github.com/cockpit-project/starter-kit
+Source0:        %{name}-%{version}.tar.xz
+Source1:        %{name}-node-%{version}.tar.xz
+BuildArch:      noarch
+
+%{NPM_PROVIDES}
+
+BuildRequires:  nodejs
+BuildRequires:  gettext
+BuildRequires:  make
+BuildRequires:  libappstream-glib
+
+Requires:       cockpit-bridge
+Requires:       python3
+
+%description
+A Cockpit Web GUI plugin inspired by GNOME Baobab (Disk Usage Analyzer) that
+scans folders and filesystems and visualizes directory sizes using interactive
+concentric rings charts, treemaps, and expandable tree views.
+
+%prep
+%setup -q -n %{name}
+%setup -q -T -D -a 1 -n %{name}
+
+%build
+NODE_ENV=production ./build.js
+
+%install
+%make_install PREFIX=/usr
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/org.cockpit_project.baobab.metainfo.xml
+
+%files
+%license LICENSE
+%doc README.md
+%{_datadir}/cockpit/baobab
+%{_datadir}/metainfo/org.cockpit_project.baobab.metainfo.xml
+
+%changelog
+* Fri Nov 13 2026 Cockpit Baobab Contributors - 1.0.0-1
+- Initial release of Cockpit Disk Usage Analyzer (Baobab) plugin
